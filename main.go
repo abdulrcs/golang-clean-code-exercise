@@ -1,9 +1,9 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 
-        "github.com/hezbymuhammad/golang-clean-code-exercise/models"
+	"github.com/hezbymuhammad/golang-clean-code-exercise/models"
 )
 
 func main() {
@@ -13,27 +13,11 @@ func main() {
         s := models.NewSales(salesData)
         e := models.NewExpenses(expensesData)
 
-        salesTotal := 0
-        expensesTotal := 0
-        salesFirstTwoDays := 0
-        expensesFirstTwoDays := 0
-
-        // TODO: create separate method for calculating sales and expense
-        // i.e. salesTotal := s.GetTotal()
-        // i.e. expensesTotal := e.GetTotal()
-        for i := 0; i <= 6; i++ {
-                salesTotal += s.Get(i)
-                expensesTotal += e.Get(i)
-        }
-
-        // TODO: create separate method for calculating sales and expense
-        // i.e. salesFirstTwoDays := s.GetTotalWithinRange(0, 2)
-        // i.e. expensesFirstTwoDays := e.GetTotalWithinRange(0, 2)
-        for i := 0; i <= 1; i++ {
-                salesFirstTwoDays += s.Get(i)
-                expensesFirstTwoDays += e.Get(i)
-        }
-
+        salesTotal := s.GetTotal()
+        expensesTotal := e.GetTotal()
+        salesFirstTwoDays := s.GetTotalWithinRange(0, 1)
+        expensesFirstTwoDays := s.GetTotalWithinRange(0, 1)
+        
         fmt.Println("=======##=======")
         fmt.Printf("Sales in the first 2 days is: %v\n", salesFirstTwoDays)
         fmt.Printf("Expenses in the first 2 days is: %v\n", expensesFirstTwoDays)
