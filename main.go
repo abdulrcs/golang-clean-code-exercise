@@ -1,17 +1,17 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 
-        "github.com/hezbymuhammad/golang-clean-code-exercise/models"
+	"github.com/hezbymuhammad/golang-clean-code-exercise/models"
 )
 
 func main() {
         salesData := []int{1000, 22000, 33000, 44000, 55000, 66000, 77000}
         expensesData := []int{15000, 25000, 35000, 45000, 55000, 65000, 75000}
 
-        s := models.NewSales(salesData)
-        e := models.NewExpenses(expensesData)
+        s := models.NewTransactions(salesData)
+        e := models.NewTransactions(expensesData)
 
         salesTotal := 0
         expensesTotal := 0
